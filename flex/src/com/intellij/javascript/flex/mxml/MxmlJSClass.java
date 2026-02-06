@@ -8,12 +8,7 @@ import com.intellij.lang.javascript.flex.XmlBackedJSClassImpl;
 import com.intellij.lang.javascript.psi.JSCommonTypeNames;
 import com.intellij.lang.javascript.psi.JSField;
 import com.intellij.lang.javascript.psi.JSFile;
-import com.intellij.lang.javascript.psi.ecmal4.JSAttribute;
-import com.intellij.lang.javascript.psi.ecmal4.JSAttributeList;
-import com.intellij.lang.javascript.psi.ecmal4.JSAttributeNameValuePair;
-import com.intellij.lang.javascript.psi.ecmal4.JSClass;
-import com.intellij.lang.javascript.psi.ecmal4.JSReferenceList;
-import com.intellij.lang.javascript.psi.ecmal4.XmlBackedJSClassFactory;
+import com.intellij.lang.javascript.psi.ecmal4.*;
 import com.intellij.lang.javascript.psi.resolve.ImplicitJSFieldImpl;
 import com.intellij.lang.javascript.psi.resolve.JSResolveProcessorEx;
 import com.intellij.lang.javascript.psi.resolve.JSResolveUtil;
@@ -47,13 +42,15 @@ public class MxmlJSClass extends XmlBackedJSClassImpl {
   public static final @NonNls String MXML_URI4 = "library://ns.adobe.com/flex/spark";
   public static final @NonNls String MXML_URI5 = "library://ns.adobe.com/flex/halo";
   public static final @NonNls String MXML_URI6 = "library://ns.adobe.com/flex/mx";
-  public static final @NonNls String[] MXML_URIS = {FlexSupportLoader.MXML_URI, FlexSupportLoader.MXML_URI3, MXML_URI4, MXML_URI5, MXML_URI6};
-  public static final @NonNls String[] FLEX_4_NAMESPACES = {FlexSupportLoader.MXML_URI3, MXML_URI4, MXML_URI5, MXML_URI6};
+  public static final @NonNls String MXML_URI7 = "library://ns.apache.org/royale/jewel";
+  public static final @NonNls String MXML_URI8 = "library://ns.apache.org/royale/basic";
+  public static final @NonNls String[] MXML_URIS = {FlexSupportLoader.MXML_URI, FlexSupportLoader.MXML_URI3, MXML_URI4, MXML_URI5, MXML_URI6, MXML_URI7, MXML_URI8};
+  public static final @NonNls String[] FLEX_4_NAMESPACES = {FlexSupportLoader.MXML_URI3, MXML_URI4, MXML_URI5, MXML_URI6, MXML_URI7, MXML_URI8};
   private static final String OPERATION_TAG_NAME = "operation";
   private static final String HTTP_SERVICE_TAG_NAME = "HTTPService";
   private static final String WEB_SERVICE_TAG_NAME = "WebService";
   private static final String[] REQUEST_TAG_POSSIBLE_NAMESPACES =
-    {FlexSupportLoader.MXML_URI, MXML_URI4, MXML_URI6};
+    {FlexSupportLoader.MXML_URI, MXML_URI4, MXML_URI6, MXML_URI7, MXML_URI8};
   private static final String REQUEST_TAG_NAME = "request";
   private static final String[] TAGS_THAT_ALLOW_ANY_XML_CONTENT = {PRIVATE_TAG_NAME, XML_TAG_NAME, XMLLIST_TAG_NAME,
     FlexPredefinedTagNames.MODEL};
